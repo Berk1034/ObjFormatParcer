@@ -28,7 +28,8 @@ namespace ObjFormatParcer
                         Vertices.Add(vertex);
                         break;
                     case "vt":
-                        VertexTexture vertexTexture = new VertexTexture(Convert.ToDouble(parts[1], cultureInfo), Convert.ToDouble(parts[2], cultureInfo), Convert.ToDouble(parts[3], cultureInfo));
+                        VertexTexture vertexTexture = new VertexTexture();
+                        vertexTexture.LoadCoordinates(parts[1..], cultureInfo);
                         VertexTextures.Add(vertexTexture);
                         break;
                     case "vn":
