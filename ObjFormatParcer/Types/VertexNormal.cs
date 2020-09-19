@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ObjFormatParcer
+namespace ObjFormatParcer.Types
 {
     public class VertexNormal
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace ObjFormatParcer
+namespace ObjFormatParcer.Types
 {
     public class VertexTexture
     {

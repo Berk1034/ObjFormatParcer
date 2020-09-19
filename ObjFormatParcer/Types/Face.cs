@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace ObjFormatParcer
+namespace ObjFormatParcer.Types
 {
     public class Face
     {
