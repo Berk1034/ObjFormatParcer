@@ -9,7 +9,6 @@ namespace ObjFormatParcer
     {
         private CultureInfo cultureInfo = CultureInfo.InvariantCulture;
         private char lineSeparator = ' ';
-        private char indexesSeparator = '/';
 
         public List<Vertex> Vertices { get; private set; } = new List<Vertex>();
         public List<VertexTexture> VertexTextures { get; private set; } = new List<VertexTexture>();
@@ -24,7 +23,8 @@ namespace ObjFormatParcer
                 switch (parts[0])
                 {
                     case "v":
-                        Vertex vertex = new Vertex(Convert.ToDouble(parts[1], cultureInfo), Convert.ToDouble(parts[2], cultureInfo), Convert.ToDouble(parts[3], cultureInfo));
+                        double w = parts.Length > 4 ? Convert.ToDouble(parts[4], cultureInfo) : 1.0;
+                        Vertex vertex = new Vertex(Convert.ToDouble(parts[1], cultureInfo), Convert.ToDouble(parts[2], cultureInfo), Convert.ToDouble(parts[3], cultureInfo), w);
                         Vertices.Add(vertex);
                         break;
                     case "vt":
@@ -37,7 +37,9 @@ namespace ObjFormatParcer
                         VertexNormals.Add(vertexNormal);
                         break;
                     case "f":
-                        Face face = new Face(Array.ConvertAll(parts[1].Split(indexesSeparator), int.Parse), Array.ConvertAll(parts[2].Split(indexesSeparator), int.Parse), Array.ConvertAll(parts[3].Split(indexesSeparator), int.Parse));
+                        Face face = new Face();
+                        face.LoadIndexes(parts[1..]);
+                        //Face face = new Face(Array.ConvertAll(parts[1].Split(indexesSeparator), int.Parse), Array.ConvertAll(parts[2].Split(indexesSeparator), int.Parse), Array.ConvertAll(parts[3].Split(indexesSeparator), int.Parse));
                         Faces.Add(face);
                         break;
                 }
