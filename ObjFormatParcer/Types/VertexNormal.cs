@@ -6,11 +6,11 @@ namespace ObjFormatParcer.Types
 {
     public class VertexNormal
     {
-        public double I { get; set; }
-        public double J { get; set; }
-        public double K { get; set; }
+        public float I { get; set; }
+        public float J { get; set; }
+        public float K { get; set; }
 
-        public VertexNormal(double i, double j, double k)
+        public VertexNormal(float i, float j, float k)
         {
             this.I = i;
             this.J = j;

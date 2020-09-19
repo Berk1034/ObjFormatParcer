@@ -24,8 +24,8 @@ namespace ObjFormatParcer
                 switch (parts[0])
                 {
                     case "v":
-                        double w = parts.Length > 4 ? Convert.ToDouble(parts[4], cultureInfo) : 1.0;
-                        Vertex vertex = new Vertex(Convert.ToDouble(parts[1], cultureInfo), Convert.ToDouble(parts[2], cultureInfo), Convert.ToDouble(parts[3], cultureInfo), w);
+                        float w = parts.Length > 4 ? float.Parse(parts[4], cultureInfo) : 1f;
+                        Vertex vertex = new Vertex(float.Parse(parts[1], cultureInfo), float.Parse(parts[2], cultureInfo), float.Parse(parts[3], cultureInfo), w);
                         Vertices.Add(vertex);
                         break;
                     case "vt":
@@ -34,7 +34,7 @@ namespace ObjFormatParcer
                         VertexTextures.Add(vertexTexture);
                         break;
                     case "vn":
-                        VertexNormal vertexNormal = new VertexNormal(Convert.ToDouble(parts[1], cultureInfo), Convert.ToDouble(parts[2], cultureInfo), Convert.ToDouble(parts[3], cultureInfo));
+                        VertexNormal vertexNormal = new VertexNormal(float.Parse(parts[1], cultureInfo), float.Parse(parts[2], cultureInfo), float.Parse(parts[3], cultureInfo));
                         VertexNormals.Add(vertexNormal);
                         break;
                     case "f":

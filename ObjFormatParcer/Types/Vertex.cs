@@ -6,12 +6,12 @@ namespace ObjFormatParcer.Types
 {
     public class Vertex
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
-        public double W { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public float Z { get; set; }
+        public float W { get; set; }
 
-        public Vertex(double x, double y, double z, double w)
+        public Vertex(float x, float y, float z, float w)
         {
             this.X = x;
             this.Y = y;

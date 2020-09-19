@@ -7,13 +7,13 @@ namespace ObjFormatParcer.Types
 {
     public class VertexTexture
     {
-        public double U { get; set; }
-        public double V { get; set; } = 0;
-        public double W { get; set; } = 0;
+        public float U { get; set; }
+        public float V { get; set; } = 0;
+        public float W { get; set; } = 0;
 
         public VertexTexture() { }
 
-        public VertexTexture(double u, double v, double w)
+        public VertexTexture(float u, float v, float w)
         {
             this.U = u;
             this.V = v;
@@ -23,15 +23,15 @@ namespace ObjFormatParcer.Types
         public void LoadCoordinates(string[] coords, CultureInfo cultureInfo)
         {
             int length = coords.Length;
-            this.U = Convert.ToDouble(coords[0], cultureInfo);
+            this.U = float.Parse(coords[0], cultureInfo);
             if (length < 3)
             {
-                this.V = Convert.ToDouble(coords[1], cultureInfo);
+                this.V = float.Parse(coords[1], cultureInfo);
             }
             else
             {
-                this.V = Convert.ToDouble(coords[1], cultureInfo);
-                this.W = Convert.ToDouble(coords[2], cultureInfo);
+                this.V = float.Parse(coords[1], cultureInfo);
+                this.W = float.Parse(coords[2], cultureInfo);
             }
         }
     }
